@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集 - DUTYC摄影工作室</title>
+    <meta name="description" content="浏览DUTYC摄影工作室的精选作品集，感受我们用镜头捕捉的美好瞬间">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+    <!-- 字体链接 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- 基础样式 -->
+    <link rel="stylesheet" href="css/base.css">
+
+    <!-- 作品集页面样式 -->
+    <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- 网站Logo -->
+                <a href="index.html" class="brand-logo">
+                    <img src="assets/logo.svg" alt="DUTYC摄影工作室" width="180">
+                </a>
+
+                <!-- 主导航 -->
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">首页</a></li>
+                    <li><a href="portfolio.html" class="nav-link active">作品集</a></li>
+                    <li><a href="services.html" class="nav-link">服务项目</a></li>
+                    <li><a href="about.html" class="nav-link">关于我们</a></li>
+                    <li><a href="contact.html" class="nav-link">联系我们</a></li>
+                </ul>
+
+                <!-- 移动端菜单按钮 -->
+                <button class="mobile-menu-btn" aria-label="菜单">
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                    <span class="menu-line"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 作品集主内容区 -->
+    <main class="portfolio-main">
+        <!-- 页眉横幅 -->
+        <section class="portfolio-hero">
+            <div class="container">
+                <h1 class="page-title">我们的作品</h1>
+                <p class="page-subtitle">用镜头讲述每一个独特故事</p>
+            </div>
+        </section>
+
+        <!-- 作品筛选 -->
+        <section class="portfolio-filter-section">
+            <div class="container">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">全部作品</button>
+                    <button class="filter-btn" data-filter="portrait">人像摄影</button>
+                    <button class="filter-btn" data-filter="wedding">婚礼摄影</button>
+                    <button class="filter-btn" data-filter="commercial">商业摄影</button>
+                    <button class="filter-btn" data-filter="landscape">风光摄影</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 作品展示 -->
+        <section class="portfolio-gallery-section">
+            <div class="container">
+                <div class="gallery-grid">
+                    <!-- 作品1 - 人像摄影 -->
+                    <article class="portfolio-item" data-category="portrait">
+                        <div class="portfolio-img-container">
+                            <img src="assets/portfolio/portrait-1.jpg" alt="城市人像摄影" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <button class="view-btn" aria-label="查看大图">
+                                    <svg viewBox="0 0 24 24"><path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>城市肖像系列</h3>
+                            <p class="portfolio-category">人像摄影</p>
+                            <p class="portfolio-date">2023年5月</p>
+                            <p class="portfolio-desc">在都市环境中捕捉人物的自然状态，展现城市与人的和谐关系。</p>
+                        </div>
+                    </article>
+
+                    <!-- 作品2 - 婚礼摄影 -->
+                    <article class="portfolio-item" data-category="wedding">
+                        <div class="portfolio-img-container">
+                            <img src="assets/portfolio/wedding-1.jpg" alt="户外婚礼摄影" loading="lazy">
+                            <div class="portfolio-overlay">
+                                <button class="view-btn" aria-label="查看大图">
+                                    <svg viewBox="0 0 24 24"><path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>户外婚礼纪实</h3>
+                            <p class="portfolio-category">婚礼摄影</p>
+                            <p class="portfolio-date">2023年8月</p>
+                            <p class="portfolio-desc">记录在自然环境中举行的浪漫婚礼，捕捉新人与亲友间的真挚情感。</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 分页导航 -->
+                <div class="pagination">
+                    <button class="page-btn disabled" aria-label="上一页">&laquo;</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn" aria-label="下一页">&raquo;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 灯箱结构 -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="close-btn" aria-label="关闭">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-desc"></p>
+            </div>
+            <div class="download-btn" title="下载图片">
+                <img src="/img/download.png" alt="下载">
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚区域 -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <img src="assets/logo-white.svg" alt="DUTYC摄影工作室" width="160" class="footer-logo">
+                        <p class="footer-about">我们致力于用镜头捕捉生活中的美好瞬间，创造永恒的视觉记忆。</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">快速链接</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="portfolio.html">作品集</a></li>
+                            <li><a href="services.html">服务项目</a></li>
+                            <li><a href="about.html">关于我们</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">联系方式</h4>
+                        <address class="footer-contact">
+                            <p>工作室地址：北京市朝阳区创意园区A栋102</p>
+                            <p>联系电话：<a href="tel:+8610123456789">+86 10 1234 5678</a></p>
+                            <p>电子邮箱：<a href="mailto:info@dutycstudio.com">info@dutycstudio.com</a></p>
+                        </address>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-title">关注我们</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="微信"><img src="assets/微信.svg" alt="微信" width="28"></a>
+                            <a href="#" aria-label="QQ"><img src="assets/QQ.svg" alt="微博" width="28"></a>
+                            <a href="#" aria-label="邮箱"><img src="assets/邮箱.svg" alt="邮箱" width="28"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">&copy; 2023 DUTYC摄影工作室. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript文件 -->
+    <script src="js/main.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>
