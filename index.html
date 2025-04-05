@@ -3,50 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUTYC工作室 - 专业样片分享平台</title>
-    <!-- 在<head>中添加以下内容 -->
-    <meta name="description" content="DUTYC工作室专业提供高质量摄影样片及视频样片，涵盖城市风光、自然景观等主题，最新作品持续更新中">
-    <meta name="keywords" content="摄影样片,视频样片,视觉艺术,城市风光,自然景观">
-
-    <!-- 添加结构化数据 -->
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "DUTYC工作室",
-    "url": "https://photo.dutyc.top",
-    "description": "样片分享平台",
-    "publisher": {
-        "@type": "Organization",
-        "name": "DUTYC工作室",
-        "logo": {
-        "@type": "ImageObject",
-        "url": "https://dutyc-studio.com/logo.png"
-        }
-    }
-    }
-    </script>
-
-    <!-- 在main区域添加语义化标题 -->
-    <main>
-    <h1 class="visually-hidden">DUTYC工作室样片展示平台</h1>
-    ...
-    </main>
-
-    <style>
-    /* 添加隐藏样式保持可访问性 */
-    .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0,0,0,0);
-        border: 0;
-    }
-    </style>
-    
+    <title>DUTYC工作室 - 高质量样片分享</title>
     <style>
         /* 全局样式 */
         * {
@@ -57,322 +14,397 @@
         }
 
         body {
-            background-color: #121212;
-            color: #f0f0f0;
+            background-color: #f5f5f5;
+            color: #333;
             line-height: 1.6;
         }
 
         a {
             text-decoration: none;
-            color: #f0f0f0;
+            color: #333;
             transition: color 0.3s;
         }
 
         a:hover {
-            color: #4a90e2;
+            color: #0077cc;
         }
 
-        /* 头部样式 */
+        /* 导航栏 */
         header {
-            background-color: rgba(18, 18, 18, 0.9);
-            padding: 1.5rem 5%;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #333;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            letter-spacing: 2px;
-            color: #4a90e2;
+            color: #0077cc;
         }
 
-        nav ul {
+        .logo span {
+            color: #333;
+        }
+
+        .nav-links {
             display: flex;
             list-style: none;
         }
 
-        nav ul li {
+        .nav-links li {
             margin-left: 2rem;
         }
 
-        /* 主要内容区域 */
+        .nav-links a {
+            font-weight: 500;
+        }
+
+        /* 主要内容 */
         main {
-            margin-top: 80px;
+            max-width: 1200px;
+            margin: 6rem auto 2rem;
             padding: 0 5%;
         }
 
-        /* 轮播图区域 */
-        .hero-slider {
-            height: 80vh;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 3rem;
-            border-radius: 8px;
+        /* 英雄区域 */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
         }
 
-        .slide {
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #0077cc;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #005fa3;
+            color: white;
+        }
+
+        /* 样片展示区 */
+        .showcase {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #0077cc;
+            margin: 0.5rem auto 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .gallery-item .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
+            border: none;
         }
 
-        .slide.active {
-            opacity: 1;
+        .item-info {
+            padding: 1.2rem;
         }
 
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slide-caption {
-            position: absolute;
-            bottom: 20%;
-            left: 10%;
-            max-width: 600px;
-            background-color: rgba(18, 18, 18, 0.7);
-            padding: 2rem;
-            border-radius: 8px;
-        }
-
-        .slide-caption h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* 最新作品区域 */
-        .latest-works {
-            margin: 4rem 0;
-        }
-
-        .latest-works h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #333;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .work-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            height: 250px;
-            transition: transform 0.3s;
-        }
-
-        .work-item:hover {
-            transform: scale(1.03);
-        }
-
-        .work-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .work-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            padding: 1.5rem;
-        }
-
-        .work-info h3 {
+        .item-info h3 {
             margin-bottom: 0.5rem;
         }
 
-        /* 页脚样式 */
+        .item-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* 关于我们 */
+        .about {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 4rem 0;
+        }
+
+        .about p {
+            margin-bottom: 1rem;
+        }
+
+        /* 页脚 */
         footer {
-            background-color: #0a0a0a;
-            padding: 2rem 5%;
+            background-color: #333;
+            color: white;
             text-align: center;
-            margin-top: 3rem;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .social-links li {
+            margin: 0 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
         }
 
         /* 响应式设计 */
         @media (max-width: 768px) {
-            header {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .about {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
                 flex-direction: column;
                 padding: 1rem;
             }
 
-            nav ul {
-                margin-top: 1rem;
+            .logo {
+                margin-bottom: 1rem;
             }
 
-            nav ul li {
-                margin-left: 1rem;
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
             }
 
-            .slide-caption {
-                bottom: 10%;
-                left: 5%;
-                padding: 1rem;
+            .nav-links li {
+                margin: 0;
             }
 
-            .slide-caption h2 {
+            main {
+                margin-top: 8rem;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
                 font-size: 1.8rem;
             }
 
-            .work-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .gallery {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- 导航栏 -->
     <header>
-        <div class="logo">DUTYC STUDIO</div>
         <nav>
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="photos.html">图片样片</a></li>
-                <li><a href="videos.html">视频样片</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="contact.html">联系我们</a></li>
+            <div class="logo">DUTYC<span>工作室</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#photos">图片样片</a></li>
+                <li><a href="#videos">视频样片</a></li>
+                <li><a href="#about">关于我们</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- 主要内容 -->
     <main>
-        <section class="hero-slider">
-            <!-- 轮播图区域 -->
-            <div class="slide active">
-                <img src="egimg/IMG_1964.JPG" alt="精选作品1">
-                <div class="slide-caption">
-                    <h2>探索视觉艺术</h2>
-                    <p>DUTYC工作室最新力作 - 校园风光</p>
-                </div>
-            </div>
+        <!-- 英雄区域 -->
+        <section id="home" class="hero">
+            <h1>探索DUTYC工作室的创意世界</h1>
+            <p>我们致力于创作高质量的视觉内容，分享独特的艺术视角和专业的技术实现。</p>
+            <a href="#photos" class="cta-button">浏览样片</a>
+        </section>
 
-            <div class="slide">
-                <img src="egimg/IMG_1989.JPG" alt="精选作品2">
-                <div class="slide-caption">
-                    <h2>乡村风光</h2>
-                    <p>乡村自然系列 - 记录乡土人情</p>
+        <!-- 图片样片展示 -->
+        <section id="photos" class="showcase">
+            <h2 class="section-title">图片样片</h2>
+            <div class="gallery">
+                <!-- 图片项目1 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="自然风光">
+                    <div class="item-info">
+                        <h3>晨曦山脉</h3>
+                        <p>4K分辨率 | 自然风光 | 2023年拍摄</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slide">
-                <img src="egimg/IMG_1965.JPG" alt="精选作品3">
-                <div class="slide-caption">
-                    <h2>城市风景</h2>
-                    <p>DUTYC工作室最新力作 - 城市风光系列</p>
+                <!-- 图片项目2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="城市景观">
+                    <div class="item-info">
+                        <h3>都市夜景</h3>
+                        <p>高动态范围 | 城市摄影 | 长曝光</p>
+                    </div>
+                </div>
+
+                <!-- 图片项目3 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5" alt="人像摄影">
+                    <div class="item-info">
+                        <h3>情绪人像</h3>
+                        <p>专业布光 | 高分辨率 | 艺术人像</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="latest-works">
-            <h2>最新作品</h2>
-            <div class="work-grid">
-                <!-- 图片作品 -->
-                <div class="work-item photo">
-                    <img src="/egimg/IMG_1966.JPG" alt="城市风光">
-                    <div class="work-info">
-                        <h3>城市之光</h3>
-                        <p>摄影 / 2023.10</p>
+        <!-- 视频样片展示 -->
+        <section id="videos" class="showcase">
+            <h2 class="section-title">视频样片</h2>
+            <div class="gallery">
+                <!-- 视频项目1 -->
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="item-info">
+                        <h3>商业广告样片</h3>
+                        <p>4K HDR | 60fps | 专业调色</p>
                     </div>
                 </div>
 
-                <div class="work-item photo">
-                    <img src="egimg/IMG_1969.JPG" alt="自然景观">
-                    <div class="work-info">
-                        <h3>森林秘境</h3>
-                        <p>摄影 / 2023.09</p>
+                <!-- 视频项目2 -->
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="item-info">
+                        <h3>纪录片预告</h3>
+                        <p>电影级画质 | 专业音效设计 | 故事叙述</p>
                     </div>
                 </div>
 
-                <!-- 视频作品 -->
-                <div class="work-item video">
-                    <img src="egimg/IMG_1971.JPG" alt="延时摄影">
-                    <div class="work-info">
-                        <h3>日出时分</h3>
-                        <p>延时摄影 / 2023.08</p>
+                <!-- 视频项目3 -->
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                </div>
-
-                <div class="work-item video">
-                    <img src="egimg/IMG_1989.JPG" alt="自然视频">
-                    <div class="work-info">
-                        <h3>山间溪流</h3>
-                        <p>视频 / 2023.07</p>
-                    </div>
-                </div>
-
-                <div class="work-item photo">
-                    <img src="egimg/IMG_2295.JPG" alt="晨雾">
-                    <div class="work-info">
-                        <h3>晨雾缭绕</h3>
-                        <p>摄影 / 2023.06</p>
-                    </div>
-                </div>
-
-                <div class="work-item photo">
-                    <img src="egimg/IMG_2297.JPG" alt="岩石海岸">
-                    <div class="work-info">
-                        <h3>岩石海岸</h3>
-                        <p>摄影 / 2023.05</p>
+                    <div class="item-info">
+                        <h3>音乐视频</h3>
+                        <p>创意拍摄 | 视觉特效 | 节奏剪辑</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- 关于我们 -->
+        <section id="about" class="about">
+            <h2 class="section-title">关于DUTYC工作室</h2>
+            <p>DUTYC工作室成立于2015年，由一群热爱视觉艺术的创意人组成。我们专注于高品质的图片和视频创作，为客户提供从概念开发到最终交付的全流程服务。</p>
+            <p>我们的团队由经验丰富的摄影师、摄像师、导演、剪辑师和视觉特效师组成，拥有专业的设备和技术能力，能够应对各种创意挑战。</p>
+            <p>无论是商业广告、纪录片、音乐视频还是艺术创作，我们都致力于用视觉语言讲述打动人心的故事。</p>
         </section>
     </main>
 
+    <!-- 页脚 -->
     <footer>
-        <p>&copy; 2023 DUTYC工作室. 保留所有权利.</p>
-        <p>联系我们: info@dutyc-studio.com | 电话: 123-456-7890</p>
+        <div class="footer-content">
+            <h3>DUTYC工作室</h3>
+            <p>高质量视觉内容创作者</p>
+            <ul class="social-links">
+                <li><a href="#"><i class="fab fa-weibo">微博</i></a></li>
+                <li><a href="#"><i class="fab fa-bilibili">B站</i></a></li>
+                <li><a href="#"><i class="fab fa-instagram">Instagram</i></a></li>
+                <li><a href="#"><i class="fab fa-youtube">YouTube</i></a></li>
+            </ul>
+            <p class="copyright">&copy; 2023 DUTYC工作室. 保留所有权利.</p>
+        </div>
     </footer>
-
-    <script>
-        // 简单的轮播图功能
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
-
-            function showSlide(n) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                currentSlide = (n + slides.length) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }
-
-            function nextSlide() {
-                showSlide(currentSlide + 1);
-            }
-
-            // 自动轮播
-            setInterval(nextSlide, 5000);
-
-            // 点击作品跳转到详情页
-            const workItems = document.querySelectorAll('.work-item');
-            workItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const type = this.classList.contains('photo') ? 'photos' : 'videos';
-                    window.location.href = `${type}.html?id=${this.querySelector('h3').textContent}`;
-                });
-            });
-        });
-    </script>
 </body>
 </html>
