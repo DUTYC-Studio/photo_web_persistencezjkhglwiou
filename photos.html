@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUTYC工作室 - 高质量样片分享</title>
+    <title>图片样片 | DUTYC工作室</title>
     <style>
-        /* 全局样式 */
+        /* 全局样式 - 与主页保持一致 */
         * {
             margin: 0;
             padding: 0;
@@ -78,126 +78,135 @@
             padding: 0 5%;
         }
 
-        /* 英雄区域 */
-        .hero {
+        /* 页面标题 */
+        .page-header {
             text-align: center;
-            padding: 4rem 0;
+            padding: 3rem 0;
         }
 
-        .hero h1 {
-            font-size: 3rem;
+        .page-header h1 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .page-header p {
+            font-size: 1.1rem;
             color: #666;
             max-width: 700px;
-            margin: 0 auto 2rem;
+            margin: 0 auto;
         }
 
-        .cta-button {
-            display: inline-block;
-            background-color: #0077cc;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #005fa3;
-            color: white;
-        }
-
-        /* 样片展示区 */
-        .showcase {
-            margin: 4rem 0;
-        }
-
-        .section-title {
-            font-size: 2rem;
+        /* 分类筛选 */
+        .filter-section {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
         }
 
-        .section-title:after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 3px;
+        .filter-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-button {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-button:hover, .filter-button.active {
             background-color: #0077cc;
-            margin: 0.5rem auto 0;
+            color: white;
         }
 
-        .gallery {
+        /* 图片画廊 */
+        .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .gallery-item {
-            background-color: white;
+        .photo-item {
+            position: relative;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            aspect-ratio: 4/3;
         }
 
-        .gallery-item:hover {
+        .photo-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .gallery-item img {
+        .photo-item img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .gallery-item .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 比例 */
-            height: 0;
-            overflow: hidden;
-        }
-
-        .gallery-item .video-container iframe {
+        .photo-overlay {
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .item-info {
-            padding: 1.2rem;
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
         }
 
-        .item-info h3 {
+        .photo-title {
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
-        .item-info p {
-            color: #666;
+        .photo-meta {
             font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
         }
 
-        /* 关于我们 */
-        .about {
+        /* 分页 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .page-button {
             background-color: white;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            margin: 4rem 0;
+            border: 1px solid #ddd;
+            padding: 0.6rem 1rem;
+            margin: 0 0.3rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .about p {
-            margin-bottom: 1rem;
+        .page-button:hover, .page-button.active {
+            background-color: #0077cc;
+            color: white;
+            border-color: #0077cc;
         }
 
         /* 页脚 */
@@ -238,16 +247,12 @@
 
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
+            .page-header h1 {
+                font-size: 2rem;
             }
 
-            .gallery {
+            .photo-gallery {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-
-            .about {
-                padding: 2rem;
             }
         }
 
@@ -274,16 +279,12 @@
                 margin-top: 8rem;
             }
 
-            .hero {
-                padding: 2rem 0;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .gallery {
+            .photo-gallery {
                 grid-template-columns: 1fr;
+            }
+
+            .filter-options {
+                justify-content: center;
             }
         }
         /* 全屏查看模态框 */
@@ -314,23 +315,53 @@
             margin: 0 auto;
         }
 
+        /* 更新全屏模态框样式 */
         .modal-details {
             color: white;
             text-align: center;
             margin-top: 1rem;
             max-width: 800px;
             padding: 0 1rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .modal-title {
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0;
         }
 
         .modal-meta {
             font-size: 1rem;
             color: rgba(255,255,255,0.8);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
+            flex: 1;
+            min-width: 100%;
+            order: 2; /* 将元数据移到第二行 */
+            margin-top: 0.5rem;
+        }
+
+        .download-btn {
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 0;
+            order: 1; /* 将按钮保持在第一行 */
+        }
+
+        .modal-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
         }
 
         .download-btn {
@@ -389,7 +420,6 @@
         .next {
             right: 30px;
         }
-
     </style>
 </head>
 <body>
@@ -398,8 +428,8 @@
         <nav>
             <div class="logo">DUTYC<span>工作室</span></div>
             <ul class="nav-links">
-                <li><a href="/">首页</a></li>
-                <li><a href="/photos.html">图片样片</a></li>
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/photos.html" class="active">图片样片</a></li>
                 <li><a href="#videos">视频样片</a></li>
                 <li><a href="#about">关于我们</a></li>
             </ul>
@@ -408,92 +438,119 @@
 
     <!-- 主要内容 -->
     <main>
-        <!-- 英雄区域 -->
-        <section id="home" class="hero">
-            <h1>探索DUTYC工作室的创意世界</h1>
-            <p>我们致力于创作高质量的视觉内容，分享独特的艺术视角和专业的技术实现。</p>
-            <a href="/photos.html" class="cta-button">浏览样片</a>
+        <!-- 页面标题 -->
+        <section class="page-header">
+            <h1>DUTYC图片样片</h1>
+            <p>探索我们精选的高质量摄影作品，每一张照片都讲述着独特的故事，展现专业的技术与艺术视角。</p>
         </section>
 
-        <!-- 图片样片展示 -->
-        <section id="photos" class="showcase">
-            <h2 class="section-title">图片样片</h2>
-            <div class="gallery">
-                <!-- 图片项目1 -->
-                <div class="gallery-item">
-                    <img src="/egimg/IMG_1964.JPG" alt="生机盎然">
-                    <div class="item-info">
-                        <h3>小草青青</h3>
-                        <p>微距拍摄 | 自然风光 | 2024年拍摄</p>
-                    </div>
-                </div>
-
-                <!-- 图片项目2 -->
-                <div class="gallery-item">
-                    <img src="/egimg/IMG_20250405_160608.jpg" alt="城市景观">
-                    <div class="item-info">
-                        <h3>桃花漫漫</h3>
-                        <p>高动态范围 | 自然风光 | 2025年拍摄</p>
-                    </div>
-                </div>
-
-                <!-- 图片项目3 -->
-                <div class="gallery-item">
-                    <img src="/egimg/IMG_1203.JPG" alt="人像摄影">
-                    <div class="item-info">
-                        <h3>情绪人像</h3>
-                        <p>专业布光 | 高分辨率 | 艺术人像</p>
-                    </div>
-                </div>
+        <!-- 分类筛选 -->
+        <section class="filter-section">
+            <h3 class="filter-title">筛选作品</h3>
+            <div class="filter-options">
+                <button class="filter-button active">全部</button>
+                <button class="filter-button">商业摄影</button>
+                <button class="filter-button">人像写真</button>
+                <button class="filter-button">风光摄影</button>
+                <button class="filter-button">产品摄影</button>
+                <button class="filter-button">艺术创作</button>
             </div>
         </section>
 
-        <!-- 视频样片展示 -->
-        <section id="videos" class="showcase">
-            <h2 class="section-title">视频样片</h2>
-            <div class="gallery">
-                <!-- 视频项目1 -->
-                <div class="gallery-item">
-                    <div class="video-container">
-                        <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="item-info">
-                        <h3>商业广告样片</h3>
-                        <p>4K HDR | 60fps | 专业调色</p>
-                    </div>
-                </div>
-
-                <!-- 视频项目2 -->
-                <div class="gallery-item">
-                    <div class="video-container">
-                        <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="item-info">
-                        <h3>纪录片预告</h3>
-                        <p>电影级画质 | 专业音效设计 | 故事叙述</p>
-                    </div>
-                </div>
-
-                <!-- 视频项目3 -->
-                <div class="gallery-item">
-                    <div class="video-container">
-                        <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="item-info">
-                        <h3>音乐视频</h3>
-                        <p>创意拍摄 | 视觉特效 | 节奏剪辑</p>
-                    </div>
+        <!-- 图片画廊 -->
+        <div class="photo-gallery">
+            <!-- 图片1 -->
+            <div class="photo-item">
+                <img src="/egimg/IMG_2290.JPG" alt="山脉风光">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">晨曦山脉</h3>
+                    <p class="photo-meta">自然风光 | 4K分辨率 | 2023</p>
                 </div>
             </div>
-        </section>
 
-        <!-- 关于我们 -->
-        <section id="about" class="about">
-            <h2 class="section-title">关于DUTYC工作室</h2>
-            <p>DUTYC工作室成立于2015年，由一群热爱视觉艺术的创意人组成。我们专注于高品质的图片和视频创作，为客户提供从概念开发到最终交付的全流程服务。</p>
-            <p>我们的团队由经验丰富的摄影师、摄像师、导演、剪辑师和视觉特效师组成，拥有专业的设备和技术能力，能够应对各种创意挑战。</p>
-            <p>无论是商业广告、纪录片、音乐视频还是艺术创作，我们都致力于用视觉语言讲述打动人心的故事。</p>
-        </section>
+            <!-- 图片2 -->
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="城市夜景">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">都市之光</h3>
+                    <p class="photo-meta">城市摄影 | 长曝光 | 2023</p>
+                </div>
+            </div>
+
+            <!-- 图片3 -->
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5" alt="人像摄影">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">沉思时刻</h3>
+                    <p class="photo-meta">人像写真 | 专业布光 | 2023</p>
+                </div>
+            </div>
+
+            <!-- 图片4 -->
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692" alt="产品摄影">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">极简设计</h3>
+                    <p class="photo-meta">产品摄影 | 商业项目 | 2023</p>
+                </div>
+            </div>
+
+            <!-- 图片5 -->
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1517438476312-10d79c077509" alt="建筑摄影">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">几何之美</h3>
+                    <p class="photo-meta">建筑摄影 | 商业项目 | 2023</p>
+                </div>
+            </div>
+
+            <!-- 图片6 -->
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f" alt="时尚摄影">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">时尚前沿</h3>
+                    <p class="photo-meta">时尚摄影 | 商业项目 | 2023</p>
+                </div>
+            </div>
+
+            <!-- 图片7 -->
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b" alt="自然摄影">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">森林秘境</h3>
+                    <p class="photo-meta">自然风光 | 4K分辨率 | 2023</p>
+                </div>
+            </div>
+
+            <!-- 图片8 -->
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="宠物摄影">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">忠实伙伴</h3>
+                    <p class="photo-meta">宠物摄影 | 生活风格 | 2023</p>
+                </div>
+            </div>
+
+            <!-- 图片9 -->
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083" alt="美食摄影">
+                <div class="photo-overlay">
+                    <h3 class="photo-title">美味时刻</h3>
+                    <p class="photo-meta">美食摄影 | 商业项目 | 2023</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+            <button class="page-button">上一页</button>
+            <button class="page-button active">1</button>
+            <button class="page-button">2</button>
+            <button class="page-button">3</button>
+            <button class="page-button">4</button>
+            <button class="page-button">5</button>
+            <button class="page-button">下一页</button>
+        </div>
     </main>
 
     <!-- 页脚 -->
@@ -510,14 +567,17 @@
             <p class="copyright">&copy; 2025 DUTYC工作室. 保留所有权利.</p>
         </div>
     </footer>
+
     <div id="imageModal" class="modal">
         <span class="close-modal">&times;</span>
         <div class="nav-arrow prev" onclick="navigate(-1)">&#10094;</div>
         <div class="modal-content">
             <img id="expandedImg" class="modal-image" src="" alt="">
             <div class="modal-details">
-                <h3 id="modalTitle" class="modal-title"></h3>
-                <p id="modalMeta" class="modal-meta"></p>
+                <div class="modal-info">
+                    <h3 id="modalTitle" class="modal-title"></h3>
+                    <p id="modalMeta" class="modal-meta"></p>
+                </div>
                 <button id="downloadBtn" class="download-btn">下载高清图片</button>
             </div>
         </div>
@@ -608,6 +668,33 @@
                     document.body.style.overflow = "auto";
                 }
             }
+        });
+    </script>
+
+    <script>
+        // 简单的筛选功能
+        document.querySelectorAll('.filter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // 移除所有按钮的active类
+                document.querySelectorAll('.filter-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // 为当前点击的按钮添加active类
+                this.classList.add('active');
+
+                // 这里可以添加实际的筛选逻辑
+                // 例如根据按钮的文本内容筛选图片
+            });
+        });
+
+        // 分页按钮交互
+        document.querySelectorAll('.page-button').forEach(button => {
+            button.addEventListener('click', function() {
+                if(!this.classList.contains('active')) {
+                    document.querySelector('.page-button.active').classList.remove('active');
+                    this.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
